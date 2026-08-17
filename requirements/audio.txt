@@ -1,0 +1,9 @@
+-r base.txt
+librosa
+soundfile
+torch
+torchaudio
+praat-parselmouth
+ruptures
+matplotlib
+torch-vggish-yamnet

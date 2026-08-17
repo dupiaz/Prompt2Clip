@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  prompt2clip:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: prompt2clip_app
+    volumes:
+      # Mount thư mục videos để lưu/đọc video từ máy host
+      - ./videos:/app/videos
+      # Mount thư mục models để không phải tải lại các file AI model
+      - ./models:/app/models
+    # Cấu hình sử dụng GPU (Nvidia) trên Docker
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: python Prompt2Clip.py

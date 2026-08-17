@@ -1,0 +1,6 @@
+-r base.txt
+opencv-python
+torch
+torchvision
+transformers
+Pillow
